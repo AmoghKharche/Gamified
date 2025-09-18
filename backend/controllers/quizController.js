@@ -27,15 +27,22 @@ export const submitQuiz = async (req, res) => {
   
       const { correctCount, wrongCount, result } = calculateScore(answers);
   
+      
+  
+      const answerArray = Object.entries(answers).map(([question, answer]) => ({
+        question: Number(question),
+        answer
+      }));
+
       const quiz = new Quiz({
         name,
         email,
-        answers, // [{question:1,answer:"A"}, ...]
+        answers: answerArray,
         correctCount,
         wrongCount,
         result
       });
-  
+      
       await quiz.save();
   
       res.status(201).json({

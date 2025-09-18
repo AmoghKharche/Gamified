@@ -1,15 +1,30 @@
 <div class="quiz-container">
-    <div class="question-box">
+  <div class="question-box">
+    <button *ngIf="quiz.options.length === 0" class="close-button" (click)="close()">
+      &times;
+    </button>
+    <div class="content-wrapper">
       <h2 class="question-text">{{ quiz.question }}</h2>
       
+      <div *ngIf="quiz.options && quiz.options.length > 0; else infoTemplate">
+
       <div class="options-grid">
-        <button *ngFor="let option of quiz.options; let i = index"
+        <button  *ngFor="let option of quiz.options; let i = index"
                 class="option-button"
                 [class.option-selected]="i === selectedOptionIndex"
-                (click)="selectOption(i, option)">
+                (click)="selectOption(i)">
           <span class="option-letter">{{ ['A', 'B', 'C', 'D'][i] }}</span>
           <span class="option-text">{{ option }}</span>
         </button>
       </div>
+      </div>
+
+      <ng-template #infoTemplate>
+        <div class="info-text">
+          <strong class="heading">SURPRISE !</strong>
+          <p>+2 bonus points <br> for quick thinking.</p>
+        </div>
+      </ng-template>
     </div>
   </div>
+</div>

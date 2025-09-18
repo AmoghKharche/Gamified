@@ -122,7 +122,7 @@
   flex-direction: column;
   align-items: center;
   padding: 0px 20px;
-  margin-top: 450px;
+  margin-top: 692px;
   /* If you have a specific main background image for the page */
   /* background-image: url('assets/main-background.png'); */
   /* background-size: cover; */
@@ -136,7 +136,6 @@
 /* --- Title Section --- */
 .title-section {
   text-align: center;
-  margin-bottom: 40px;
   max-width: 800px; /* Limit width for better readability */
   width: 100%;
 }
@@ -177,7 +176,7 @@
 .gifts-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  gap: 30px; /* Space between gift items */
+  gap: 10px; /* Space between gift items */
   max-width: 900px; /* Max width for the grid */
   width: 100%;
   justify-items: center; /* Center items within their grid cells */
@@ -217,6 +216,58 @@
   }
 }
 
+/* Container for the form fields */
+.user-form {
+  display: flex;
+  justify-content: center; /* Center the fields on the page */
+  gap: 20px; /* Space between the Name and Email fields */
+  max-width: 700px;
+}
+
+/* Styles for each field (label + input) */
+.form-field {
+  display: flex;
+  flex-direction: column; /* Stack label on top of the input */
+  flex: 1; /* Allow fields to grow and fill the space */
+}
+
+.form-field label {
+  color: #b0c4de; /* Light steel blue for the label text */
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Styling for the input boxes */
+.form-field input {
+  background-color: rgba(0, 0, 0, 0.3); /* Dark, semi-transparent background */
+  border: 1px solid #33c4d4; /* Teal border to match the theme */
+  border-radius: 8px;
+  padding: 1px 15px;
+  color: #ffffff; /* White text color */
+  font-size: 1rem;
+  outline: none; /* Remove default browser outline */
+  transition: all 0.2s ease-in-out; /* Smooth transition for focus effect */
+}
+
+/* Style for the placeholder text */
+.form-field input::placeholder {
+  color: #778899; /* Light slate gray */
+}
+
+/* Glowing effect when the user clicks into the input box */
+.form-field input:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(51, 196, 212, 0.7); /* Teal glow */
+}
+
+/* --- Responsive for smaller screens --- */
+@media (max-width: 600px) {
+  .user-form {
+    flex-direction: column; /* Stack fields vertically on mobile */
+  }
+}
+
 @media (max-width: 480px) {
   .gifts-grid {
     grid-template-columns: 1fr; /* 1 column on very small screens */
@@ -253,3 +304,68 @@
 /* Add this to your global src/styles.css */
 
 /* This class styles the main modal window */
+/* Container for the feedback and submit buttons */
+.submission-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  
+  /* Add this line to move the container down */
+  transform: translateY(80px); /* Adjust 50px to whatever distance you need */
+}
+
+/* --- Feedback Image Button --- */
+.feedback-button {
+  border: none;
+  background: none;
+  padding: 0;
+  position: relative;
+  cursor: pointer;
+}
+
+.feedback-container {
+  position: relative;
+  display: inline-block;
+}
+
+.feedback-image {
+  display: block;
+  width: 250px; /* adjust size as needed */
+}
+
+.feedback-text {
+  position: absolute;
+  top: 50%;   /* vertically center */
+  left: 50%;  /* horizontally center */
+  transform: translate(-50%, -90%);
+  color: white;       /* text color */
+  font-weight: bold;
+  font-size: 14px;    /* adjust as needed */
+  text-align: center;
+  pointer-events: none; /* click passes through text */
+}
+/* --- Submit Quiz Button --- */
+.submit-quiz-button {
+  background: linear-gradient(to right, #e83e8c, #d12c5b); /* Vibrant pink gradient */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  
+  border: none;
+  border-radius: 50px; /* Creates a pill shape */
+  padding: 15px 40px;
+  
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(232, 62, 140, 0.4); /* Adds a pink glow */
+  transition: all 0.3s ease;
+}
+
+.submit-quiz-button:hover {
+  transform: translateY(-3px); /* Lifts the button slightly on hover */
+  box-shadow: 0 7px 20px rgba(232, 62, 140, 0.6);
+}

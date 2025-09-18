@@ -3,6 +3,9 @@ import { RouterOutlet } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { InfoModalComponent } from './info-modal/info-modal.component';
 import { QuizModalComponent } from './quiz-modal/quiz-modal.component';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 export interface IQuiz {
   question: string;
@@ -12,13 +15,15 @@ export interface IQuiz {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet,CommonModule,FormsModule,HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
   userAnswers: { [key: number]: string } = {};
   selectedQuiz: IQuiz | null = null;
+  name:any
+  email:any
 
 
   quizzes: IQuiz[] = [
@@ -35,52 +40,49 @@ export class AppComponent {
     },
     {
       id: 2, // Added ID
-      question: "What is the primary risk of an inaccurate inventory count?",
+      question: "What action must be taken if a second sample check fails in an automated warehouse?",
       options: [
-        "Decreased employee morale",
-        "Overstated profits and failed audits",
-        "Increased marketing costs",
-        "Slower production times"
+        "Proceed with the count using estimates",
+        "Suspend the count and consult GCAD",
+        "Ignore discrepancies if under threshold",
+        "Recount only the failed pallets"
       ]
     },
     {
       id: 3, // Added ID
-      question: "What is the primary risk of an inaccurate inventory count?",
-      options: [
-        "Decreased employee morale",
-        "Overstated profits and failed audits",
-        "Increased marketing costs",
-        "Slower production times"
+      question: "",
+      options:[
+
       ]
     },
     {
       id: 4, // Added ID
-      question: "What is the primary risk of an inaccurate inventory count?",
+      question: "Why must SAP and Warehouse Management System be frozen during the inventory count?",
       options: [
-        "Decreased employee morale",
-        "Overstated profits and failed audits",
-        "Increased marketing costs",
-        "Slower production times"
+        "To prevent unauthorized access",
+        "To ensure no stock movements distort the count",
+        "To allow system updates",
+        "To reduce system load"
       ]
     },
     {
       id: 5, // Added ID
-      question: "What is the primary risk of an inaccurate inventory count?",
+      question: "Which of the following is NOT a valid documentation requirement?",
       options: [
-        "Decreased employee morale",
-        "Overstated profits and failed audits",
-        "Increased marketing costs",
-        "Slower production times"
+        "Screenshot of SAP report",
+        "Justification for the count differences",
+        "Verbal approval of adjustments",
+        "Evidence of communication of count instructions"
       ]
     },
     {
       id: 6, // Added ID
-      question: "What is the primary risk of an inaccurate inventory count?",
+      question: "What is minimum threshold for mandatory Unilever employee attendance at third-party counts (non-supply chain entities)?",
       options: [
-        "Decreased employee morale",
-        "Overstated profits and failed audits",
-        "Increased marketing costs",
-        "Slower production times"
+        "€100,000",
+        "€250,000",
+        "€500,000",
+        "€1,000,000"
       ]
     },
     // ... add the rest of your questions with unique IDs
@@ -132,7 +134,7 @@ export class AppComponent {
     }
   ];
 
-  constructor(private modalService: NgbModal){}
+  constructor(private modalService: NgbModal,private http:HttpClient){}
 
   openModal1() {
     const modalRef = this.modalService.open(InfoModalComponent, { centered: true,   windowClass: 'my-big-modal'
@@ -170,22 +172,64 @@ export class AppComponent {
       centered: false, // We will handle centering manually
       backdrop: 'static',
       keyboard: false,
-      // This is the key change: apply our custom class
-      windowClass: 'custom-fixed-modal' 
+      fullscreen:true
         });
 
     modalRef.componentInstance.quiz = quizData;
 
-    // **CRITICAL CHANGE**: Capture the result when the modal closes
-    modalRef.result.then((selectedOption: string) => {
-      if (selectedOption) {
-        // Store the answer from the modal
-        this.userAnswers[quizData.id] = selectedOption;
-        console.log('Current answers:', this.userAnswers); // You can see the collected data here
-        // This is where you would eventually send the data to the backend
+    modalRef.result.then((result: { [key: number]: string } | null) => {
+      if (result) {
+        this.userAnswers = { ...this.userAnswers, ...result };
+        console.log('Current answers:', this.userAnswers);
       }
     }).catch(reason => {
-      console.log('Modal dismissed:', reason); // Handle cases where the user closes the modal without answering
     });
+  }
+  get isSubmitDisabled(): boolean {
+    return Object.keys(this.userAnswers).length < 5;
+  }
+  isValidName(name: string): boolean {
+    return /^[a-zA-Z\s]{2,50}$/.test(name.trim()); // only letters + spaces, min 2 chars
+  }
+  
+  isValidEmail(email: string): boolean {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()); // simple email regex
+  }
+  
+  
+  submitQuiz(){
+    if (!this.name || !this.isValidName(this.name)) {
+      alert("Please enter a valid name (only letters, min 2 characters).");
+      return;
+    }
+  
+    if (!this.email || !this.isValidEmail(this.email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
+  
+    if(this.isSubmitDisabled){
+      alert("Please answer all questions.");
+      return;
+    }
+
+    const submission = {
+      name: this.name,
+      email: this.email,
+      answers: this.userAnswers
+    };
+
+
+    this.http.post('http://localhost:8000/api/quiz/submit', submission)
+      .subscribe({
+        next: (res) => {
+          alert("Quiz submitted successfully!");
+        },
+        error: (err) => {
+          console.error("Submission failed:", err);
+          alert("Error submitting quiz. Try again :" + err.error.message);
+        }
+      });
+  
   }
 }

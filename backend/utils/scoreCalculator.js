@@ -1,25 +1,29 @@
-// Example correct answers (question → answer)
+// Example correct answers
 const correctAnswers = {
-    1: "A",
-    2: "B",
-    3: "C",
-    4: "D",
-    5: "A",
-    6: "C"
-  };
-  
-  export const calculateScore = (submittedAnswers) => {
-    let correctCount = 0;
-  
-    submittedAnswers.forEach(({ question, answer }) => {
-      if (correctAnswers[question] && correctAnswers[question] === answer) {
+  1: "A",
+  2: "B",
+  4: "D",
+  5: "A",
+  6: "C"
+};
+
+export const calculateScore = (submittedAnswers) => {
+  let correctCount = 0;
+  let wrongCount = 0;
+
+  // submittedAnswers is an object: { "1": "A", "2": "B", ... }
+  Object.entries(submittedAnswers).forEach(([questionId, answer]) => {
+    const qid = Number(questionId); // keys are strings
+    if (correctAnswers[qid]) {
+      if (correctAnswers[qid] === answer) {
         correctCount++;
+      } else {
+        wrongCount++;
       }
-    });
-  
-    const wrongCount = submittedAnswers.length - correctCount;
-    const result = correctCount >= 4 ? "Pass" : "Fail"; // Example rule
-  
-    return { correctCount, wrongCount, result };
-  };
-  
+    }
+  });
+
+  const result = correctCount >= 4 ? "Pass" : "Fail"; // Example rule
+
+  return { correctCount, wrongCount, result };
+};
