@@ -1,0 +1,15 @@
+<div class="quiz-container">
+    <div class="question-box">
+      <h2 class="question-text">{{ quiz.question }}</h2>
+      
+      <div class="options-grid">
+        <button *ngFor="let option of quiz.options; let i = index"
+                class="option-button"
+                [class.option-selected]="i === selectedOptionIndex"
+                (click)="selectOption(i, option)">
+          <span class="option-letter">{{ ['A', 'B', 'C', 'D'][i] }}</span>
+          <span class="option-text">{{ option }}</span>
+        </button>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,255 @@
+/* General */
+.landing-page {
+    font-family: Arial, sans-serif;
+    color: #fff;
+    scroll-behavior: smooth;
+    text-align: center;
+  }
+  
+  section {
+    min-height: 100vh;   /* each section at least full screen */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .first-group {
+    background: url('../assets/background1.jpg') no-repeat top center;
+    background-size: 600px 2005px;   /* 👈 use your custom width + height */
+    width: 600px;                    /* same as background width */
+    height: 2005px;                  /* same as background height */
+    margin: 0 auto;                  /* center the whole block horizontally */
+    position: relative;              /* allows child div positioning */
+  }
+  
+  .inventory-button {
+    background: url('../assets/inventory.png') no-repeat center center;
+    background-size: contain;
+    height: 153px;
+    width: 296px;
+    /* stays fixed at top of background */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* new wrapper for text */
+  .inventory-content {
+    position: absolute;
+    top: 300px;     /* 👈 adjust to exact vertical position */
+    left: 50%;      
+    transform: translateX(-50%);
+    text-align: center;
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  .long-text {
+    margin-top: 175px; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 1.3;
+    font-size: 14px;
+  }
+  .long-text-2 {
+    margin-top: 10px; 
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 1.3;
+    font-size: 14px;
+
+  }
+
+  /* Second background for Section 3 */
+  .second-group {
+    background: url('../assets/background1.jpg') no-repeat top center;
+    background-size: cover;
+    margin: 0 auto;
+    height: 2005px;
+    width: 600px;
+  }
+
+  .inventory-text {
+    font-weight: 900;   /* heaviest standard */
+    font-size: 16px;    /* make it larger */
+    letter-spacing: 1px; /* optional: spacing for emphasis */
+    margin-top: 52px;
+  }
+  
+  .button-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 200px); /* 3 per row */
+    justify-items: center;
+  }
+  
+  .btn-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/info-button.png') no-repeat center center;
+    background-size: contain;   /* keeps your PNG shape */
+    width: 240px;               /* adjust to match your PNG */
+    height: 100px;               /* adjust to match your PNG */
+    text-decoration: none;
+    position: relative;
+    color: #fff;                /* text color on button */
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+  }
+  
+  .btn-item span {
+    z-index: 2;
+    font-size: 11px;
+    padding: 10px;
+  }
+  
+  .btn-item:hover {
+    opacity: 0.9;               /* hover effect */
+    cursor: pointer;
+  }
+  
+
+
+  /* Audit Challenge*/
+  /* Container for the entire page content */
+.inventory-challenge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 20px;
+  margin-top: 450px;
+  /* If you have a specific main background image for the page */
+  /* background-image: url('assets/main-background.png'); */
+  /* background-size: cover; */
+  /* background-position: center; */
+  /* background-repeat: no-repeat; */
+  color: #fff; /* Default text color */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Example font */
+  position: relative; /* For absolute positioning of any decorative elements */
+}
+
+/* --- Title Section --- */
+.title-section {
+  text-align: center;
+  margin-bottom: 40px;
+  max-width: 800px; /* Limit width for better readability */
+  width: 100%;
+}
+
+.title-background {
+  background-image: url('../assets/audit-challenge.png');
+  background-size: 100% 100%; /* Stretch to fit, or 'cover'/'contain' */
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 75px 20px; /* Adjust padding to fit text within the purple banner */
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px; /* Ensure a minimum height for the banner */
+}
+
+.challenge-title {
+  font-size: 1.8rem; /* Adjust as needed */
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0; /* Remove default margin */
+  line-height: 1.2;
+}
+
+.challenge-description {
+  font-size: 1.2rem; /* Adjust as needed */
+  color: #e0e0e0; /* Lighter white for description */
+  line-height: 1.5;
+  max-width: 600px;
+  margin-top: -60px;
+  
+
+}
+
+/* --- Gift Boxes Grid --- */
+.gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 30px; /* Space between gift items */
+  max-width: 900px; /* Max width for the grid */
+  width: 100%;
+  justify-items: center; /* Center items within their grid cells */
+  align-items: center; /* Vertically center items */
+}
+
+.gift-item {
+  width: 100%;
+  max-width: 200px; /* Max width for each gift item */
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.gift-item:hover {
+  transform: translateY(-5px); /* Simple hover effect */
+}
+
+.gift-image {
+  width: 100%;
+  height: auto;
+  display: block; /* Remove extra space below image */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+  .gifts-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    gap: 20px;
+  }
+
+  .challenge-title {
+    font-size: 2rem;
+  }
+
+  .challenge-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .gifts-grid {
+    grid-template-columns: 1fr; /* 1 column on very small screens */
+    gap: 15px;
+  }
+
+  .challenge-title {
+    font-size: 1.5rem;
+  }
+
+  .title-background {
+    padding: 15px 20px;
+  }
+}
+
+/* Optional: Decorative elements positioning */
+/*
+.deco-gear {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 80px;
+  opacity: 0.3;
+}
+.deco-chart {
+  position: absolute;
+  bottom: 50px;
+  left: 50px;
+  width: 100px;
+  opacity: 0.3;
+}
+*/
+
+/* Add this to your global src/styles.css */
+
+/* This class styles the main modal window */

@@ -1,0 +1,70 @@
+/* Style the component itself, which is now the visible container */
+:host {
+    display: block;
+    background-color: #f8f8f8; /* Your modal's background color */
+    border-radius: 30px;      /* Your desired border radius! */
+    border: 1px solid #ddd;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Ensures content respects the border radius */
+    /* --- ADD THESE BACKGROUND PROPERTIES --- */
+  background-image: url('../../assets/modal-background.png'); /* Path to your PNG */
+  background-size: cover; /* or 'contain', or specific values like '100% 100%' */
+  background-position: center center; /* Position the image */
+  background-repeat: no-repeat; /* Prevent the image from tiling */
+  /* --- END ADDITIONS --- */
+
+  color: #e0e0e0; /* Adjust text color for better contrast on a dark background */
+}
+
+  
+  .custom-modal-header {
+    display: flex;
+    justify-content: flex-end;
+    padding: 9px;
+  }
+  
+  .close-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px 15px;
+    
+    /* Red Cross Icon Styling */
+    font-size: 1.5rem;  /* Makes the 'x' larger */
+    color: red;         /* Makes the 'x' red */
+    line-height: 1;
+    font-weight: 300;
+    opacity: 0.8;
+  }
+  
+  .close-button:hover {
+    opacity: 1;
+  }
+  
+  .custom-modal-body {
+    padding: 0 30px 30px 30px;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .bullet-point {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .bullet-icon {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    background-color: #6c757d;
+    border-radius: 50%;
+    margin-top: 8px;
+    margin-right: 15px;
+  }
+  
+  .bullet-point p {
+    margin: 0;
+    line-height: 1.6;
+    font-size: 16px;
+  }
