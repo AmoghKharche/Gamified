@@ -11,7 +11,6 @@ export const calculateScore = (submittedAnswers) => {
   let correctCount = 0;
   let wrongCount = 0;
 
-  // submittedAnswers is an object: { "1": "A", "2": "B", ... }
   Object.entries(submittedAnswers).forEach(([questionId, answer]) => {
     const qid = Number(questionId); // keys are strings
     if (correctAnswers[qid]) {

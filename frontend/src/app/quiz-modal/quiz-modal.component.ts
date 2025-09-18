@@ -12,7 +12,7 @@ import { CommonModule } from "@angular/common";
 })
 export class QuizModalComponent {
   @Input() quiz!: IQuiz;
-  @Input() preSelectedAnswer: string | null = null; // receive previous answer
+  @Input() preSelectedAnswer: string | null = null;
 
   selectedOptionIndex: number | null = null;
   answers: Record<number, string> = {};
@@ -20,9 +20,8 @@ export class QuizModalComponent {
   constructor(public activeModal: NgbActiveModal) {}
 
   ngOnInit() {
-    // if there was a previous answer, restore it
     if (this.preSelectedAnswer) {
-      const index = this.preSelectedAnswer.charCodeAt(0) - 65; // 'A' -> 0, 'B' -> 1, ...
+      const index = this.preSelectedAnswer.charCodeAt(0) - 65;
       this.selectedOptionIndex = index;
       this.answers[this.quiz.id] = this.preSelectedAnswer;
     }

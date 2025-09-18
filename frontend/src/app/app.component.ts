@@ -5,7 +5,7 @@ import { InfoModalComponent } from './info-modal/info-modal.component';
 import { QuizModalComponent } from './quiz-modal/quiz-modal.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ApiService } from '../services/api.service';
 
 export interface IQuiz {
   question: string;
@@ -15,7 +15,7 @@ export interface IQuiz {
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet,CommonModule,FormsModule,HttpClientModule],
+  imports: [CommonModule,FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -134,7 +134,7 @@ export class AppComponent {
     }
   ];
 
-  constructor(private modalService: NgbModal,private http:HttpClient){}
+  constructor(private modalService: NgbModal,private quizService: ApiService){}
 
   openModal1() {
     const modalRef = this.modalService.open(InfoModalComponent, { centered: true,   windowClass: 'my-big-modal'
@@ -169,7 +169,7 @@ export class AppComponent {
 
   openQuizModal(quizData: IQuiz) {
     const modalRef = this.modalService.open(QuizModalComponent, {
-      centered: false, // We will handle centering manually
+      centered: false, 
       backdrop: 'static',
       keyboard: false,
       fullscreen:true
@@ -224,16 +224,15 @@ export class AppComponent {
     };
 
 
-    this.http.post('http://localhost:8000/api/quiz/submit', submission)
-      .subscribe({
-        next: (res) => {
-          alert("Quiz submitted successfully!");
-        },
-        error: (err) => {
-          console.error("Submission failed:", err);
-          alert("Error submitting quiz. Try again :" + err.error.message);
-        }
-      });
+    this.quizService.submitQuiz(submission).subscribe({
+      next: () => {
+        alert("Quiz submitted successfully!");
+      },
+      error: (err) => {
+        console.error("Submission failed:", err);
+        alert("Error submitting quiz. Try again: " + (err.error?.message || 'Unknown error'));
+      }
+    });
   
   }
 }
