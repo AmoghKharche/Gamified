@@ -3,58 +3,84 @@
     <section class="bg-group first-group">
   
         <!-- Top button -->
+      
         <div class="inventory-button">
           <p class="inventory-text">
             INVENTORY <br> COUNTS
           </p>
-          <span>
-            <p style="margin-top: 35px;">
+          <span class="inventory-sub-text">
+            <div>
               Just a Quarter-End Ritual? Think Again! <br>
               <b>Click to Discover & Win!</b>
-            </p>
+            </div>
           </span>
+          <div><img src="../assets/white-line.png" alt="INVENTORY COUNTS"></div>
         </div>
+   
       
         <!-- Text content below -->
         <div class="inventory-content">
          
       
-          <p class="long-text">
+          <div class="long-text">
             HUL held inventory worth INR 4,161<sup>*</sup> Crore as of 31st March 2025 <br>
             and during the June Quarter, our owned factories churned out <br>
             an average of 2.37<sup>*</sup> Lakh Tonnes of finished products per month. <br>
             Inventory counts are crucial for optimizing supply chain decisions, <br>
             reducing waste, and ensuring product availability to meet customer <br>
             demand efficiently.
-          </p>
+          </div>
 
-          <p class="long-text-2">
+          <div class="long-text-2">
             What if we told you that a single inventory count could make or break <br>
             your financial accuracy? Dive into this interactive mail to uncover the <br>
             secrets behind Unilever's global stock counting standards. Click, learn, <br>
             and stand a chance to win UR Awesome Points.
-          </p>
+          </div>
 
 
-          <div class="button-grid">
-            <a href="javascript:void(0)" class="btn-item" (click)="openModal1()">
+          <div class="container">
+            <div class="btn-grid">
+              <span class="button"> 
+ <a href="javascript:void(0)" class="btn-item" (click)="openModal1()">
               <span>Why Inventory<br>Counts Matter</span>
             </a>
-            <a href="javascript:void(0)" class="btn-item" (click)="openModal2()">
+              </span>
+              <span class="button"> 
+  <a href="javascript:void(0)" class="btn-item" (click)="openModal2()">
               <span>The Golden Rules<br>of Counting</span>
             </a>
-            <a href="javascript:void(0)" class="btn-item" (click)="openModal3()">
+              </span>
+
+              <span class="button"> 
+<a href="javascript:void(0)" class="btn-item" (click)="openModal3()">
               <span>Automated vs Non-<br>Automated Warehouses</span>
             </a>
-            <a href="javascript:void(0)" class="btn-item" (click)="openModal4()">
+              </span>
+
+             <span class="button"> 
+ <a href="javascript:void(0)" class="btn-item" (click)="openModal4()">
               <span>Documentation & <br>Approvals</span>
             </a>
-            <a href="javascript:void(0)" class="btn-item" (click)="openModal5()">
+              </span>
+
+              <span class="button"> 
+ <a href="javascript:void(0)" class="btn-item" (click)="openModal5()">
               <span>Test Your <br>Knowledge & Win!</span>
             </a>
-            <a href="javascript:void(0)" class="btn-item" (click)="openModal6()">
+              </span>
+           
+             <span class="button"> 
+ <a href="javascript:void(0)" class="btn-item" (click)="openModal6()">
               <span>We Value <br>Your Feedback</span>
             </a>
+              </span>
+          
+            
+           
+           
+           
+            </div>
           </div>
           
         </div>
@@ -64,19 +90,18 @@
             <div class="title-background">
               <h1 class="challenge-title">WELCOME TO INVENTORY <br> AUDIT CHALLENGE</h1>
             </div>
-            <p class="challenge-description">
+           
+          </div>
+          <div> <p class="challenge-description">
               Test your knowledge, find hidden surprises,
                and sharpen your compliance skills.
-            </p>
-          </div>
+            </p></div>
           <div class="user-form">
-            <div class="form-field">
-              <label for="name">Name</label>
-              <input type="text" id="name" [(ngModel)]="name" placeholder="Enter your name">
+            <div class="form-field">             
+              <input type="text" id="name" [(ngModel)]="name" placeholder="ENTER YOUR NAME">
             </div>
-            <div class="form-field">
-              <label for="email">Email</label>
-              <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="Enter your email address">
+            <div class="form-field">             
+              <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="ENTER YOUR EMAIL ID">
             </div>
           </div>
         
@@ -106,15 +131,15 @@
 
         <div class="submission-container">
             <button class="feedback-button">
-              <div class="feedback-container">
+              <div class="feedback-container" (click)="submitQuiz()">
                 <img src="../assets/feedback.png" alt="Provide Feedback" class="feedback-image">
-                <span class="feedback-text">FEEDBACK FORM</span>
+                <span class="feedback-text">SUBMIT QUIZ</span>
               </div>
             </button>
             
           
-            <button class="submit-quiz-button" (click)="submitQuiz()">
-              SUBMIT QUIZ
+            <button class="submit-quiz-button">
+              FEEDBACK FORM
             </button>
             
         </div>

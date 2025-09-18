@@ -1,4 +1,9 @@
 
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
 .my-big-modal .modal-content {
     background: transparent; /* Make the problematic background disappear */
     border: none; /* Remove the default border */
@@ -13,3 +18,7 @@
     position: relative;
     width: 600px;
   }
+
+  .modal-content {
+  background-color: transparent !important;
+}

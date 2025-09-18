@@ -3,12 +3,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vw;
+  width: 99vw;
   height: 100vh;
   z-index: 1000;
   background-image: url('../../assets/quiz-background.png');
   background-repeat: no-repeat;
-  background-size: 600px 100vh;
+  /* background-size: 600px 100vh; */
   background-position: center;
   display: flex;
   justify-content: center;
@@ -19,7 +19,7 @@
 /* The Green Quiz Box - Now a fixed-size container for the image */
 .question-box {
   width: 100%;
-  max-width: 650px;
+  max-width: 600px;
   /* You MUST set a height that matches your image's aspect ratio */
   /* Adjust this height value as needed */
   height: 450px; 
@@ -31,20 +31,24 @@
   /* This is crucial for positioning the inner content box */
   position: relative; 
   padding: 0; /* Remove padding from the image container */
-  margin-bottom: 350px;
+  margin-bottom: 200px;
 }
 
 .info-text {
   color: #ffffff;
-  line-height: 1.6;
-  font-size: 2.2rem;
-  text-align: center;
+font-size: 2.9rem;
+    line-height: 45px;
+    text-align: center;
+    font-weight: 600;
   padding: 20px 0; /* Add some vertical spacing */
 
   .heading{
-    font-size: 4.4rem;
+    font-size: 4.5rem;
+    line-height: 100px;
   }
 }
+
+
 /* The new inner container that holds the text and scrolls */
 .content-wrapper {
   /* Position it inside the .question-box */
@@ -52,8 +56,8 @@
   /* Adjust these values to perfectly fit the text inside your image's border */
   top: 40px;
   bottom: 40px;
-  left: 79px;
-  right: 72px;
+  left: 65px;
+  right: 65px;
 
   /* The most important part: add a scrollbar if content overflows */
   overflow-y: auto; 
@@ -70,22 +74,24 @@
 
 .question-text {
   color: #ffffff;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 600;
-  line-height: 1.4;
-  margin-bottom: 25px;
+  line-height: 28px;
+  padding: 0px 35px;
+  margin-bottom: 0px;
 }
 
 .options-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+  gap: 10px 5px;
+  padding-top: 10px;
 }
 
 .option-button {
   display: flex;
   align-items: center;
-  padding: 4px 15px;
+  padding: 10px 5px;
   border-radius: 12px;
   border: none;
   cursor: pointer;
@@ -106,12 +112,14 @@
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  margin-right: 15px;
+  margin-right: 5px;
 }
 
 .option-text {
   color: #ffffff;
   text-align: left;
+  line-height: 16px;
+    font-weight: 600;
 }
 
 .option-selected {
@@ -152,4 +160,21 @@
 
 .close-button:hover {
   opacity: 1;
+}
+
+.close-button:focus-visible {
+outline: none;
+}
+
+/* 3️⃣ Zoom In */
+.zoom-in {
+  opacity: 0;
+  transform: scale(0.7);
+  animation: zoomIn 0.6s ease-out forwards;
+}
+@keyframes zoomIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

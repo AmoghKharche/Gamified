@@ -7,7 +7,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   template: `
  <div class="custom-modal-header">
       <button type="button" class="close-button" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
-        &times;
+       <i class="bi bi-x-circle-fill"></i>
       </button>
     </div>
 

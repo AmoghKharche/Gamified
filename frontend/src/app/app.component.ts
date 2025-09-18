@@ -203,12 +203,12 @@ export class AppComponent {
   
   submitQuiz(){
     if (!this.name || !this.isValidName(this.name)) {
-      alert("Please enter a valid name (only letters, min 2 characters).");
+      alert("Please enter a valid Name.");
       return;
     }
   
     if (!this.email || !this.isValidEmail(this.email)) {
-      alert("Please enter a valid email address.");
+      alert("Please enter a valid Email ID.");
       return;
     }
   
@@ -229,8 +229,13 @@ export class AppComponent {
         alert("Quiz submitted successfully!");
       },
       error: (err) => {
-        console.error("Submission failed:", err);
-        alert("Error submitting quiz. Try again: " + (err.error?.message || 'Unknown error'));
+        const errorMsg = err.error?.message || 'Unknown error';
+
+        if (errorMsg.toLowerCase().includes("email already submitted")) {
+          alert("You have already submitted the quiz with this email.");
+        } else {
+          alert("Error submitting quiz. Try again: " + errorMsg);
+        }
       }
     });
   
