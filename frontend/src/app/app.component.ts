@@ -177,6 +177,10 @@ export class AppComponent {
 
     modalRef.componentInstance.quiz = quizData;
 
+    if (this.userAnswers && this.userAnswers[quizData.id]) {
+      modalRef.componentInstance.preSelectedAnswer = this.userAnswers[quizData.id];
+    }
+
     modalRef.result.then((result: { [key: number]: string } | null) => {
       if (result) {
         this.userAnswers = { ...this.userAnswers, ...result };
