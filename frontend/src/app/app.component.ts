@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { InfoModalComponent } from './info-modal/info-modal.component';
 import { QuizModalComponent } from './quiz-modal/quiz-modal.component';
@@ -22,9 +21,8 @@ export interface IQuiz {
 export class AppComponent {
   userAnswers: { [key: number]: string } = {};
   selectedQuiz: IQuiz | null = null;
-  name:any
   email:any
-
+  visitedModals: boolean[] = [false, false, false, false];
 
   quizzes: IQuiz[] = [
     {
@@ -136,25 +134,37 @@ export class AppComponent {
 
   constructor(private modalService: NgbModal,private quizService: ApiService){}
 
+  get allInfoVisited(): boolean {
+    return this.visitedModals.every(v => v);
+  }
+  
   openModal1() {
     const modalRef = this.modalService.open(InfoModalComponent, { centered: true,   windowClass: 'my-big-modal'
     });
     modalRef.componentInstance.bulletPoints= this.allModalData[0].bulletPoints;
+    this.visitedModals[0] = true;  // mark visited
+
   }
   openModal2() {
     const modalRef = this.modalService.open(InfoModalComponent, { centered: true,   windowClass: 'my-big-modal'
     });
     modalRef.componentInstance.bulletPoints = this.allModalData[1].bulletPoints;
+    this.visitedModals[1] = true;  // mark visited
+
   }
   openModal3() {
     const modalRef = this.modalService.open(InfoModalComponent, { centered: true,   windowClass: 'my-big-modal'
     });
     modalRef.componentInstance.bulletPoints = this.allModalData[2].bulletPoints;
+    this.visitedModals[2] = true;  // mark visited
+
   }
   openModal4() {
     const modalRef = this.modalService.open(InfoModalComponent, { centered: true,   windowClass: 'my-big-modal'
     });
     modalRef.componentInstance.bulletPoints = this.allModalData[3].bulletPoints;
+    this.visitedModals[3] = true;  // mark visited
+
   }
   openModal5() {
     const modalRef = this.modalService.open(InfoModalComponent, { centered: true,   windowClass: 'my-big-modal'
@@ -186,7 +196,7 @@ export class AppComponent {
         this.userAnswers = { ...this.userAnswers, ...result };
         console.log('Current answers:', this.userAnswers);
       }
-    }).catch(reason => {
+    }).catch(() => {
     });
   }
   get isSubmitDisabled(): boolean {
@@ -200,10 +210,18 @@ export class AppComponent {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim()); // simple email regex
   }
   
+  scrollToQuiz() {
+    if (!this.allInfoVisited) {
+      alert("Please go through all the information boxes first.");
+      return;
+    }
+    document.getElementById('level-three')?.scrollIntoView({ behavior: 'smooth' });
+  }
+  
   
   submitQuiz(){
-    if (!this.name || !this.isValidName(this.name)) {
-      alert("Please enter a valid Name.");
+    if (!this.allInfoVisited) {
+      alert("Please visit all the information boxes before attempting the quiz.");
       return;
     }
   
@@ -218,17 +236,18 @@ export class AppComponent {
     }
 
     const submission = {
-      name: this.name,
       email: this.email,
       answers: this.userAnswers
     };
 
 
     this.quizService.submitQuiz(submission).subscribe({
-      next: () => {
-        alert("Quiz submitted successfully!");
+      next: (data: { feedbackLink?: string }) => {
+        if (data.feedbackLink) {
+          window.open(data.feedbackLink, '_blank'); // open in new tab
+        }
       },
-      error: (err) => {
+      error: (err: { error: { message: string; }; }) => {
         const errorMsg = err.error?.message || 'Unknown error';
 
         if (errorMsg.toLowerCase().includes("email already submitted")) {

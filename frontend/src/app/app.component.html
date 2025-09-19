@@ -1,45 +1,45 @@
-<div class="landing-page">
 
-    <section class="bg-group first-group">
-  
-        <!-- Top button -->
-      
-        <div class="inventory-button">
-          <p class="inventory-text">
-            INVENTORY <br> COUNTS
-          </p>
-          <span class="inventory-sub-text">
-            <div>
-              Just a Quarter-End Ritual? Think Again! <br>
-              <b>Click to Discover & Win!</b>
+<div class="main">
+
+  <div class="level-name-main">
+  <div class="level-one">
+    <div class="inventory-button">
+            <div class="inventory-text">
+              <span>INVENTORY <br> COUNTS</span>
             </div>
-          </span>
-          <div><img src="../assets/white-line.png" alt="INVENTORY COUNTS"></div>
-        </div>
-   
-      
-        <!-- Text content below -->
-        <div class="inventory-content">
-         
-      
-          <div class="long-text">
-            HUL held inventory worth INR 4,161<sup>*</sup> Crore as of 31st March 2025 <br>
-            and during the June Quarter, our owned factories churned out <br>
-            an average of 2.37<sup>*</sup> Lakh Tonnes of finished products per month. <br>
-            Inventory counts are crucial for optimizing supply chain decisions, <br>
-            reducing waste, and ensuring product availability to meet customer <br>
+            <span class="inventory-sub-text">
+              <div>
+                Just a Quarter-End Ritual? Think Again! <br>
+                <b>Click to Discover & Win!</b>
+              </div>
+            </span>
+            <div><img src="../assets/white-line.png" alt="INVENTORY COUNTS"></div>
+          </div>
+  </div>
+  </div>
+
+
+ <div class="level-two-main">
+  <div class="level-two">
+ <div class="long-text">
+  <p>
+            HUL held inventory worth INR 4,161<sup>*</sup> Crore as of 31st March 2025
+            and during the June Quarter, our owned factories churned out
+            an average of 2.37<sup>*</sup> Lakh Tonnes of finished products per month.
+            Inventory counts are crucial for optimizing supply chain decisions,
+            reducing waste, and ensuring product availability to meet customer
             demand efficiently.
-          </div>
+            </p>
+            <p>
 
-          <div class="long-text-2">
-            What if we told you that a single inventory count could make or break <br>
-            your financial accuracy? Dive into this interactive mail to uncover the <br>
-            secrets behind Unilever's global stock counting standards. Click, learn, <br>
+            What if we told you that a single inventory count could make or break
+            your financial accuracy? Dive into this interactive mail to uncover the
+            secrets behind Unilever's global stock counting standards. Click, learn,
             and stand a chance to win UR Awesome Points.
+            </p>
           </div>
 
-
-          <div class="container">
+ <div class="container">
             <div class="btn-grid">
               <span class="button"> 
  <a href="javascript:void(0)" class="btn-item" (click)="openModal1()">
@@ -65,30 +65,31 @@
               </span>
 
               <span class="button"> 
- <a href="javascript:void(0)" class="btn-item" (click)="openModal5()">
+ <a href="javascript:void(0)" (click)="scrollToQuiz()" class="btn-item">
               <span>Test Your <br>Knowledge & Win!</span>
             </a>
               </span>
            
              <span class="button"> 
- <a href="javascript:void(0)" class="btn-item" (click)="openModal6()">
+ <a href="javascript:void(0)" (click)="scrollToQuiz()" class="btn-item">
               <span>We Value <br>Your Feedback</span>
             </a>
-              </span>
-          
-            
-           
-           
+              </span>            
            
             </div>
           </div>
-          
-        </div>
 
-        <div class="inventory-challenge-container">
+<div class="four-box-content">* Please go through the first four boxes before attempting the quiz</div>
+
+  </div>
+  </div>
+
+<div class="level-three-main">
+  <div class="level-three" id="level-three">
+    <div class="inventory-challenge-container">
           <div class="title-section">
             <div class="title-background">
-              <h1 class="challenge-title">WELCOME TO INVENTORY <br> AUDIT CHALLENGE</h1>
+              <h1 class="challenge-title">WELCOME TO INVENTORY AUDIT CHALLENGE</h1>
             </div>
            
           </div>
@@ -97,9 +98,6 @@
                and sharpen your compliance skills.
             </p></div>
           <div class="user-form">
-            <div class="form-field">             
-              <input type="text" id="name" [(ngModel)]="name" placeholder="ENTER YOUR NAME">
-            </div>
             <div class="form-field">             
               <input type="email" id="email" [(ngModel)]="email" name="email" placeholder="ENTER YOUR EMAIL ID">
             </div>
@@ -126,24 +124,28 @@
             </div>
           </div>
         
-        </div>
+        </div> 
+  </div>
+  </div>
 
 
-        <div class="submission-container">
-            <button class="feedback-button">
+
+<div class="level-four-main">
+     <div class="level-four">
+              <div class="submission-container">
+            <button
+             class="feedback-button">
               <div class="feedback-container" (click)="submitQuiz()">
                 <img src="../assets/feedback.png" alt="Provide Feedback" class="feedback-image">
-                <span class="feedback-text">SUBMIT QUIZ</span>
+                <span class="feedback-text">FEEDBACK FORM</span>
               </div>
             </button>
-            
-          
-            <button class="submit-quiz-button">
-              FEEDBACK FORM
-            </button>
+
+           <div class="feeback-text">* Feedback submission will also submit your quiz.</div>
             
         </div>
 
-      </section>
-  </div>
+     </div>
+     </div>
   
+</div>

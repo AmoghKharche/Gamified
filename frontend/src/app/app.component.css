@@ -14,29 +14,8 @@
     align-items: center;
   }
 
+
   
-  .first-group {
-    background: url('../assets/background1.jpg') no-repeat top center;
-    background-size: 600px 2005px;   /* 👈 use your custom width + height */
-    width: 600px;                    /* same as background width */
-    height: 2005px;                  /* same as background height */
-    margin: 0 auto;                  /* center the whole block horizontally */
-    position: relative;              /* allows child div positioning */
-  }
-  
-  .inventory-button {
-    background: url('../assets/inventory.png') no-repeat center center;
-    background-size: contain;
-    height: 153px;
-    width: 100%;
-    /* stays fixed at top of background */
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    background-size: 480px;
-    margin-top: 10px;
-  }
   
   /* new wrapper for text */
   .inventory-content {
@@ -49,42 +28,19 @@
     max-width: 600px;
   }
   
-  .long-text {
-    margin-top: 175px; 
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    line-height: 1.3;
-    /* font-size: 14px; */
-    font-weight: 600;
-  }
-  .long-text-2 {
-    margin-top: 10px; 
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    line-height: 1.3;
-     font-weight: 600;
-    /* font-size: 14px; */
-  }
+  
 
   /* Second background for Section 3 */
-  .second-group {
+  /* .second-group {
     background: url('../assets/background1.jpg') no-repeat top center;
     background-size: cover;
     margin: 0 auto;
     height: 2005px;
     width: 600px;
 
-  }
+  } */
 
-  .inventory-text {
-    font-weight: 900;   /* heaviest standard */
-    font-size: 35px;
-    line-height: 35px;    /* make it larger */
-    letter-spacing: 1px; /* optional: spacing for emphasis */
-    margin-top: 36px;
-  }
+
 
   .inventory-sub-text {
     font-size: 26px;
@@ -113,77 +69,20 @@ display: grid;
     cursor: pointer;
   }
   
-  .btn-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: url('../assets/info-button.png') no-repeat center center;
-    background-size: contain;   /* keeps your PNG shape */
-           /* adjust to match your PNG */
-      height: 70px;
-    text-decoration: none;
-    position: relative;
-    color: #fff;
-    font-weight: bold;
-    font-size: 14px;
-    text-align: center;
-    background-size: 217px;
-    transition: all 0.3s ease;
-  }
   
-  .btn-item span {
-    z-index: 2;
-    /* font-size: 11px; */
-    padding: 10px;
-    line-height: 16px;
-    font-size: 13px;
-  }
   
-  .btn-item:hover {
-    opacity: 0.9;               /* hover effect */
-    cursor: pointer;
-    transform: translateY(-3px);
-  }
+
   
 
 
   /* Audit Challenge*/
   /* Container for the entire page content */
-.inventory-challenge-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0px 20px;
-  margin-top: 720px;
-  /* If you have a specific main background image for the page */
-  /* background-image: url('assets/main-background.png'); */
-  /* background-size: cover; */
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
-  color: #fff; /* Default text color */
 
-  position: relative; /* For absolute positioning of any decorative elements */
-}
 
 /* --- Title Section --- */
-.title-section {
-  text-align: center;
-    width: 100%;
-    height: 175px;
-}
 
-.title-background {
-  background-image: url('../assets/audit-challenge.png');
-  background-size: 100% 200%; /* Stretch to fit, or 'cover'/'contain' */
-  background-repeat: no-repeat;
-  background-position: center;
 
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 120px; /* Ensure a minimum height for the banner */
-}
+
 
 .challenge-title {
   font-size: 1.8rem;
@@ -195,26 +94,10 @@ display: grid;
     padding-bottom: 8px;
 }
 
-.challenge-description {
-  font-size: 1.5rem; /* Adjust as needed */
-  color: #fff; /* Lighter white for description */
-  line-height: 1;
-  margin-top: -60px;
-  font-weight: 600;
-  
 
-}
 
 /* --- Gift Boxes Grid --- */
-.gifts-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */ 
-  width: 100%;
-  justify-items: center; /* Center items within their grid cells */
-  align-items: center; /* Vertically center items */
-  gap: 20px;
-  padding-top: 20px;
-}
+
 
 .gift-item {
   width: 100%;
@@ -252,16 +135,14 @@ display: grid;
 /* Container for the form fields */
 .user-form {
   display: flex;
-  justify-content: center; /* Center the fields on the page */
-  gap: 20px; /* Space between the Name and Email fields */
-  max-width: 700px;
+  justify-content: center; /* Center the fields on the page */ 
+  width: 500px;
 }
 
 /* Styles for each field (label + input) */
 .form-field {
     flex-direction: column;
     flex: 1;
-    width: 260px;
 }
 
 .form-field label {
@@ -273,11 +154,12 @@ display: grid;
 
 /* Styling for the input boxes */
 .form-field input {
- border: 4px solid #eb9c1a;
-    border-radius: 8px;
-    padding: 8px;
+    border: 7px solid #bb9a37;
+    border-radius: 40px;
+    padding: 16px;
     color: #000;
-    font-size: 1rem;
+    font-size: 18px;
+    font-weight: 600;
     outline: none;
     transition: all 0.2s ease-in-out;
     width: 100%;
@@ -338,17 +220,7 @@ display: grid;
 
 /* This class styles the main modal window */
 /* Container for the feedback and submit buttons */
-.submission-container {
-  display: flex;
-  justify-content: center; 
-  align-items: center;
-  flex-direction: column;
-  gap: 15px;
-  width: 100%;
-  
-  /* Add this line to move the container down */
-  transform: translateY(127px); /* Adjust 50px to whatever distance you need */
-}
+
 
 /* --- Feedback Image Button --- */
 .feedback-button {
@@ -407,3 +279,210 @@ background: linear-gradient(180deg,rgba(209, 44, 91, 0.98) 0%, rgba(130, 14, 47,
   transform: translateY(-3px); /* Lifts the button slightly on hover */
   box-shadow: 0 7px 20px rgba(232, 62, 140, 0.6);
 }
+
+
+
+
+
+
+/* ********************** */
+
+  .main {
+  width: 100%;
+  margin: 0 auto;
+  color: #fff;
+  text-align: center;
+}
+
+  /* .inventory-button {
+    background: url('../assets/inventory1.png') no-repeat center center;
+    background-size: 535px;
+    padding-top: 105px;
+  } */
+
+  .level-name-main {
+      background: url('../assets/level-1.jpg') no-repeat;
+    background-position: 100%;
+    background-size: 100% 100%;  
+    height: 600px;
+  }
+  .level-one{
+    padding-top: 40px;    
+   margin: 0 auto;
+   width: 1200px;
+  }
+
+.level-two-main {
+   background: url('../assets/level-2.jpg') no-repeat;
+    background-position: 100%;
+    background-size: 100% 100%; 
+    height: 680px;
+}
+
+   .level-two {
+    padding-top: 40px;
+    height: 590px;
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+  .four-box-content {
+    line-height: 1.3;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+
+
+.level-three-main {
+   background: url('../assets/level-3.jpg') no-repeat;
+    background-position: 100%;
+    background-size: 100% 100%; 
+    height: 850px;
+}
+
+    .level-three {
+    padding-top: 30px;    
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+.level-four-main {
+     background: url('../assets/level-4.jpg') no-repeat;
+    background-position: 100%;
+    background-size: 100% 100%; 
+    height: 300px;
+}
+
+    .level-four {
+    padding-top: 50px;
+    width: 1200px;
+    margin: 0 auto;
+  }
+
+
+
+
+
+
+  .inventory-text {
+    font-weight: 900;
+    font-size: 50px;
+    line-height: 52px;
+    letter-spacing: 1px;
+    background: url(../assets/inventory1.png) no-repeat center center;
+        background-size: 652px;
+    height: 162px;
+  }
+
+   .inventory-text span{
+    padding-top: 20px;
+    display: block;
+   }
+
+     .inventory-sub-text {
+    font-size: 34px;
+    line-height: 40px;
+  }
+
+  .long-text {  
+    text-align: center;
+    line-height: 1.3;
+    font-size: 20px;
+    font-weight: 600;
+  } 
+
+  .btn-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url('../assets/info-button.png') no-repeat center center;
+    background-size: contain;   /* keeps your PNG shape */
+           /* adjust to match your PNG */
+      height: 102px;
+    text-decoration: none;
+    position: relative;
+    color: #fff;    
+    text-align: center;
+    background-size: 420px 220px;
+    transition: all 0.3s ease;
+  }
+
+    .btn-item span {
+    z-index: 2;
+    padding: 10px;
+    line-height: 25px;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  
+  .btn-item:hover {
+    opacity: 0.9;               /* hover effect */
+    cursor: pointer;
+    transform: translateY(-3px);
+  }
+
+
+
+
+  .inventory-challenge-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff; 
+}
+
+.title-background {
+  background-image: url('../assets/audit-challenge.png');
+  background-size: 80% 200%; /* Stretch to fit, or 'cover'/'contain' */
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 110px; /* Ensure a minimum height for the banner */
+}
+
+.title-section {
+  text-align: center;
+    width: 100%;
+}
+
+.challenge-description {
+ font-size: 1.8rem;
+    color: #fff;
+    line-height: 30px;
+    font-weight: 600;
+    width: 650px;
+    padding-top: 10px;
+}
+
+.gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */ 
+  width: 800px;
+  justify-items: center; /* Center items within their grid cells */
+  align-items: center; /* Vertically center items */
+  gap: 30px 10px;
+  padding-top: 40px;
+}
+
+.user-form {
+  padding-top: 10px;
+}
+
+.submission-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  flex-direction: column;
+  width: 100%; 
+}
+
+.feeback-text {
+  margin-top: -20px;
+  padding-bottom: 50px;
+  font-size: 20px;
+  font-weight: 600;
+}
+  

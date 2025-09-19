@@ -7,7 +7,6 @@ const answerSchema = mongoose.Schema({
 
 const quizSchema = mongoose.Schema(
   {
-    name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     answers: [answerSchema], // store question+answer pairs
     correctCount: { type: Number, default: 0 },

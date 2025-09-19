@@ -1,9 +1,9 @@
 // Example correct answers
 const correctAnswers = {
-  1: "A",
+  1: "B",
   2: "B",
-  4: "D",
-  5: "A",
+  4: "B",
+  5: "C",
   6: "C"
 };
 
@@ -22,7 +22,7 @@ export const calculateScore = (submittedAnswers) => {
     }
   });
 
-  const result = correctCount >= 4 ? "Pass" : "Fail"; // Example rule
+  const result = correctCount = 5 ? "Pass" : "Fail";
 
   return { correctCount, wrongCount, result };
 };

@@ -3,26 +3,29 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 99vw;
+  right: 0px;
+  width: 900px;
   height: 100vh;
   z-index: 1000;
   background-image: url('../../assets/quiz-background.png');
   background-repeat: no-repeat;
+  background-size: 100%;
   /* background-size: 600px 100vh; */
   background-position: center;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  margin: 0 auto;
 }
 
 /* The Green Quiz Box - Now a fixed-size container for the image */
 .question-box {
   width: 100%;
-  max-width: 600px;
+
   /* You MUST set a height that matches your image's aspect ratio */
   /* Adjust this height value as needed */
-  height: 450px; 
+  height: 550px; 
   
   background-image: url('../../assets/green-box.png');
   background-size: 100% 100%;
@@ -54,10 +57,10 @@ font-size: 2.9rem;
   /* Position it inside the .question-box */
   position: absolute;
   /* Adjust these values to perfectly fit the text inside your image's border */
-  top: 40px;
-  bottom: 40px;
-  left: 65px;
-  right: 65px;
+  top: 0px;
+  bottom: 0px;
+  left: 100px;
+  right: 100px;
 
   /* The most important part: add a scrollbar if content overflows */
   overflow-y: auto; 
@@ -73,30 +76,30 @@ font-size: 2.9rem;
 /* (These styles are now applied to the content inside the scrollable wrapper) */
 
 .question-text {
-  color: #ffffff;
-  font-size: 1.4rem;
-  font-weight: 600;
-  line-height: 28px;
-  padding: 0px 35px;
-  margin-bottom: 0px;
+ color: #ffffff;
+    font-size: 25px;
+    font-weight: 600;
+    line-height: 32px;
+    padding: 0px 0px;
+    margin-bottom: 20px;
 }
 
 .options-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px 5px;
+  gap: 15px;
   padding-top: 10px;
 }
 
 .option-button {
-  display: flex;
-  align-items: center;
-  padding: 10px 5px;
-  border-radius: 12px;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-  background-color: #d12c5b;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px 10px 5px;
+    border-radius: 35px;
+    cursor: pointer;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 3px solid #fff;
 }
 
 /* ... other option styles remain the same ... */
@@ -112,22 +115,23 @@ font-size: 2.9rem;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  margin-right: 5px;
+  margin-right: 10px;
+    margin-left: 5px;
 }
 
 .option-text {
   color: #ffffff;
   text-align: left;
-  line-height: 16px;
+  line-height: 22px;
     font-weight: 600;
 }
 
 .option-selected {
-  background-color: #28a745 !important;
+  background-color: #115acd !important;
 }
 
 .option-selected .option-letter {
-  color: #28a745;
+  color: #115acd;
 }
 
 /* You may need to style the scrollbar to match your design (optional) */
@@ -141,8 +145,8 @@ font-size: 2.9rem;
 
 .close-button {
   position: absolute; /* Position it relative to the .question-box */
-  top: 90px;
-  right: 72px;
+  top: 110px;
+    right: 100px;
   
   /* Styling for the 'X' button */
   background: none;
