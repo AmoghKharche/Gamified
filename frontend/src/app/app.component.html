@@ -65,13 +65,15 @@
               </span>
 
               <span class="button"> 
- <a href="javascript:void(0)" (click)="scrollToQuiz()" class="btn-item">
+ <a href="#level-three"      [ngStyle]="{ 'opacity': allInfoVisited ? '1' : '0.3', 'pointer-events': allInfoVisited ? 'auto' : 'none' }"
+   class="btn-item">
               <span>Test Your <br>Knowledge & Win!</span>
             </a>
               </span>
            
              <span class="button"> 
- <a href="javascript:void(0)" (click)="scrollToQuiz()" class="btn-item">
+ <a href="#level-three"      [ngStyle]="{ 'opacity': allInfoVisited ? '1' : '0.3', 'pointer-events': allInfoVisited ? 'auto' : 'none' }"
+   class="btn-item">
               <span>We Value <br>Your Feedback</span>
             </a>
               </span>            

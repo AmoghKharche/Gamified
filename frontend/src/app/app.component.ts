@@ -253,7 +253,7 @@ export class AppComponent {
         if (errorMsg.toLowerCase().includes("email already submitted")) {
           alert("You have already submitted the quiz with this email.");
         } else {
-          alert("Error submitting quiz. Try again: " + errorMsg);
+          alert("Error submitting quiz. Try again");
         }
       }
     });

@@ -22,7 +22,7 @@ export const calculateScore = (submittedAnswers) => {
     }
   });
 
-  const result = correctCount = 5 ? "Pass" : "Fail";
+  const result = correctCount === 5 ? "Pass" : "Fail";
 
   return { correctCount, wrongCount, result };
 };
