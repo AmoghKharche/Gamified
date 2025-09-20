@@ -15,11 +15,11 @@ const corsOptions = {
   
 app.use(cors(corsOptions));
 // ✅ Default route to check backend health
+
+connectDb();
 app.get("/", (req, res) => {
   res.send("Backend is working 🚀");
 });
-connectDb();
-
 // Routes
 app.use("/api/quiz", quizRoutes);
 
