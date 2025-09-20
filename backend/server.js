@@ -9,8 +9,11 @@ const app = express();
 
 // Middleware
 app.use(express.json());
-app.use(cors());
-
+const corsOptions = {
+    origin: ['https://your-production-url.com', 'http://localhost:4200']
+  };
+  
+app.use(cors(corsOptions));
 
 connectDb();
 
