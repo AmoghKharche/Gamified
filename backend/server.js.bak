@@ -3,26 +3,26 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDb from './config/db.js'
 import quizRoutes from "./routes/quizRoutes.js";
-import morgan from 'morgan';
 
 dotenv.config();
 const app = express();
 
-// Add this before routes
-app.use(morgan('dev')); // or use a custom format
-
 // Middleware
 app.use(express.json());
 const corsOptions = {
+<<<<<<< HEAD
     origin: ['https://hulcontrolsweek.com','http://34.93.173.147:4200', 'http://localhost:4200']
-  }; 
+=======
+    origin: ['https://hulcontrolsweek.com', 'http://34.93.173.147:8000','http://localhost:4200']
+>>>>>>> 422147202ef89f73bb241d04370e845384c26c93
+  };
+  
 app.use(cors(corsOptions));
 // ✅ Default route to check backend health
-
-connectDb();
 app.get("/", (req, res) => {
   res.send("Backend is working 🚀");
 });
+connectDb();
 
 // Routes
 app.use("/api/quiz", quizRoutes);

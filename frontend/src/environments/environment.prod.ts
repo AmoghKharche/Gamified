@@ -1,6 +1,6 @@
 export const environment = {
     production: true,
-    apiUrl: 'https://34.93.173.147:8000/api'
+    apiUrl: 'https://hulcontrolsweek.com/api'
 
   };
   
