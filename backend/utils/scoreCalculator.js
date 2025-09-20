@@ -2,9 +2,9 @@
 const correctAnswers = {
   1: "B",
   2: "B",
-  4: "B",
-  5: "C",
-  6: "C"
+  3: "B",
+  4: "C",
+  5: "C"
 };
 
 export const calculateScore = (submittedAnswers) => {

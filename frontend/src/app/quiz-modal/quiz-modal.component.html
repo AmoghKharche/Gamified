@@ -4,10 +4,20 @@
       <i class="bi bi-x-circle-fill"></i>
     </button>
     <div class="content-wrapper">
+      
+      <!-- Surprise block only for question 4 -->
+      <ng-container *ngIf="quiz.id === 4">
+        <div class="info-text">
+          <strong class="heading">🎉 SURPRISE!</strong>
+          <span class="bonus-text">+2 bonus points for quick thinking</span>
+        </div>
+      </ng-container>
+      
+
+      <!-- Question -->
       <h2 class="question-text">{{ quiz.question }}</h2>
       
-      <div *ngIf="quiz.options && quiz.options.length > 0; else infoTemplate">
-
+      <!-- Options -->
       <div class="options-grid">
         <button  *ngFor="let option of quiz.options; let i = index"
                 class="option-button"
@@ -17,14 +27,6 @@
           <span class="option-text">{{ option }}</span>
         </button>
       </div>
-      </div>
-
-      <ng-template #infoTemplate>
-        <div class="info-text">
-          <strong class="heading">SURPRISE !</strong>
-          <p>+2 bonus points <br> for quick thinking.</p>
-        </div>
-      </ng-template>
     </div>
   </div>
 </div>

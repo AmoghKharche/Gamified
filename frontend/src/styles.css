@@ -11,7 +11,7 @@ body {
 
 
   .custom-fixed-modal{
-    background: url('assets/quiz-background.png') no-repeat top center;
+    background: url('assets/quiz-background.jpg') no-repeat top center;
     background-size: 600px 100vh;
     margin: 0 auto;
     height: 100vh;

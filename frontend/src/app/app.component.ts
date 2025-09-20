@@ -48,13 +48,6 @@ export class AppComponent {
     },
     {
       id: 3, // Added ID
-      question: "",
-      options:[
-
-      ]
-    },
-    {
-      id: 4, // Added ID
       question: "Why must SAP and Warehouse Management System be frozen during the inventory count?",
       options: [
         "To prevent unauthorized access",
@@ -64,7 +57,7 @@ export class AppComponent {
       ]
     },
     {
-      id: 5, // Added ID
+      id: 4, // Added ID
       question: "Which of the following is NOT a valid documentation requirement?",
       options: [
         "Screenshot of SAP report",
@@ -74,7 +67,7 @@ export class AppComponent {
       ]
     },
     {
-      id: 6, // Added ID
+      id: 5, // Added ID
       question: "What is minimum threshold for mandatory Unilever employee attendance at third-party counts (non-supply chain entities)?",
       options: [
         "€100,000",
@@ -83,7 +76,6 @@ export class AppComponent {
         "€1,000,000"
       ]
     },
-    // ... add the rest of your questions with unique IDs
   ];
 
 

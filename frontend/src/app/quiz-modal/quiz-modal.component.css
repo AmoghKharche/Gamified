@@ -7,7 +7,7 @@
   width: 900px;
   height: 100vh;
   z-index: 1000;
-  background-image: url('../../assets/quiz-background.png');
+  background-image: url('../../assets/quiz-background.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   /* background-size: 600px 100vh; */
@@ -38,18 +38,30 @@
 }
 
 .info-text {
-  color: #ffffff;
-font-size: 2.9rem;
-    line-height: 45px;
-    text-align: center;
-    font-weight: 600;
-  padding: 20px 0; /* Add some vertical spacing */
-
-  .heading{
-    font-size: 4.5rem;
-    line-height: 100px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;                /* space between items */
+  padding: 3px 16px;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.2rem;
+  text-align: center;
 }
+
+.info-text .heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.info-text .bonus-text {
+  font-size: 1rem;
+  font-weight: 500;
+  opacity: 0.95;
+}
+
+
 
 
 /* The new inner container that holds the text and scrolls */
