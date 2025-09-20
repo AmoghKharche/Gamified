@@ -10,11 +10,14 @@ const app = express();
 // Middleware
 app.use(express.json());
 const corsOptions = {
-    origin: ['https://your-production-url.com', 'http://localhost:4200']
+    origin: ['https://hulcontrolsweek.com', 'http://34.93.173.147:8000','http://localhost:4200']
   };
   
 app.use(cors(corsOptions));
-
+// ✅ Default route to check backend health
+app.get("/", (req, res) => {
+  res.send("Backend is working 🚀");
+});
 connectDb();
 
 // Routes
