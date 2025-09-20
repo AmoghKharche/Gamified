@@ -11,12 +11,15 @@ const app = express();
 app.use(express.json());
 const corsOptions = {
     origin: ['https://hulcontrolsweek.com','http://34.93.173.147:4200', 'http://localhost:4200']
-  };
-  
+  }; 
 app.use(cors(corsOptions));
+// ✅ Default route to check backend health
 
 connectDb();
-
+app.get("/", (req, res) => {
+  res.send("Backend is working 🚀");
+});
+>>>>>>> 7fad02816860a545a673095cd5b57137260b9585
 // Routes
 app.use("/api/quiz", quizRoutes);
 
